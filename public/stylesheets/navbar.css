@@ -2,15 +2,30 @@
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-gap: 1em;
-    grid-auto-rows: minmax(100px, auto);
+    grid-auto-rows: minmax(75px, auto);
+    text-align: center;
 }
+
+.wrapper > a {
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    color: antiquewhite;
+}
+  
+.wrapper > a:hover {
+    background: #131c21;
+    text-decoration: none;
+    transition-delay: 50ms;
+}
+
 
 .navbar-own {
     margin: 3em 4em 5em 4em;
-    width: 100%;
-    color: rgb(2, 15, 35);
+    width: 90%;
+    background: rgba(2, 15, 35,0.8);
     border-radius: 25px;
-
+    box-shadow: 0.5em 0.75em 3px rgba(2, 15, 35,0.2);
 }
 
 .col-home {
