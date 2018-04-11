@@ -1,0 +1,14 @@
+<% include partials/header %>
+<% include partials/navbar %>
+<div class="blogs-wrapper">    
+    <div class="blogs-header"><h1>Blogs page</h1></div>    
+    <% blogs.forEach(function(blog){ %>
+    <div class="blog-img" ><img src="<%= blog.image %>" alt="Blog Image"></div>
+    <div class="blog-name"><h3><%= blog.name %></h3></div>
+    <p class="blog-desc"><%= blog.description %></p>
+    <h4 class="blog-author"><em>Written by </em><%= blog.author.username %></h4>
+    <a class="read-more" href="/blogs/<%= blog._id %>">Read more!</a>
+    </div>    
+</div>
+<% }); %>
+<% include partials/footer %>

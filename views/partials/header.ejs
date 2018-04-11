@@ -1,0 +1,24 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="Description" content="Janne Hellsten portfolio site">
+    <link rel="stylesheet" href="/stylesheets/main.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+    <title>Hellsten</title>
+</head>
+<body>
+
+    <div class="ui message">
+        <% if(error && error.length > 0){ %>
+        <div class="ui red message" role="alert">
+            <%= error %>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0){ %>
+        <div class="ui green message" role="alert">
+            <%= success %>
+        </div>
+        <% } %>
+    </div>

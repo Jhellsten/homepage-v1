@@ -1,0 +1,42 @@
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-gap: 1em;
+    grid-auto-rows: minmax(100px, auto);
+}
+
+.navbar-own {
+    margin: 3em 4em 5em 4em;
+    width: 100%;
+    color: rgb(2, 15, 35);
+    border-radius: 25px;
+
+}
+
+.col-home {
+    grid-column: 2;
+}
+
+.col-blogs {
+    grid-column: 3;
+}
+
+.col-app {
+    grid-column: 4;
+}
+
+.col-about {
+    grid-column: 5;
+}
+
+.col-login {
+    grid-column: 9;
+}
+
+.col-register {
+    grid-column: 10;
+}
+
+.col-logout {
+    grid-column: 11;
+}

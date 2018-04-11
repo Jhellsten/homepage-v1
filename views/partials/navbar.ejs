@@ -1,0 +1,27 @@
+<link rel="stylesheet" href="/stylesheets/navbar.css">
+<div class="navbar-own">    
+    <div class="wrapper">
+        <a class="col-home" href="/">
+            Home
+        </a>
+        <a class="col-blogs" href="/blogs">
+            Blog
+        </a>
+        <a class="col-app" href="/app/">
+            Apps
+        </a>
+        <a class="col-about" href="/about">
+            About
+        </a>    
+    <%	if(!currentUser) { %>
+        <a class="col-login" href="/login">Sign in</a>
+        <a class="col-register" href="/register">Register</a> 
+        <% }	else { %>
+        <a class="col-logout" href="/Logout">Logout</a>
+        
+        <p> Signed in as <%= currentUser.username %></p>
+        
+        
+    <% } %>        
+    </div>
+</div>    
