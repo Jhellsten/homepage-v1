@@ -13,7 +13,7 @@ var express = require("express");
     commentRoutes = require("./routes/comment"),
     blogRoutes = require("./routes/blogs"),
     authRoutes = require("./routes/index");
-    clientErrorHandler = require("./middleware")
+    Logging = require("./models/logging")
 
 mongoose.connect("mongodb://localhost/hellsten");
 
@@ -47,10 +47,14 @@ app.use("/", authRoutes);
 app.use("/blogs", blogRoutes);
 app.use("/blogs/:id/comments", commentRoutes);
 
-app.get("/*", function(req, res){
-	req.flash("error", "Page could not be found", (function(){
-		res.redirect("/");
-	}));
+app.use(function(req, res, next){
+    req.flash("error", "Page not found");
+		res.redirect("/blogs");
+});
+
+app.use(function(err, req, res, next){
+    Logging.error(err);
+    next();
 });
 
 // app.listen(process.env.PORT, process.env.IP);
