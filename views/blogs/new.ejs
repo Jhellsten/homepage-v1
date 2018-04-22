@@ -1,12 +1,12 @@
 <% include ../partials/header %>
 <% include ../partials/navbar %>
 
-<h1>New blog</h1>
-<form action="/blogs/new" method="POST">
-    <input type="text" name="name" placeholder="Blog title">
+<h1 class="main-header">Write a new blog post!</h1>
+<form class="new-blog" action="/blogs/new" method="POST">
+    <input type="text" name="name" placeholder="Blog title" required>
     <input type="text" name="image" placeholder="Image url">
-    <input type="text" name="description" placeholder="Write your story here">
-    <input type="submit">
+    <textarea name="description" cols="30" rows="10" placeholder="Write your story here" required></textarea>
+    <input class="btn-def" type="submit">
 </form>
 
 <% include ../partials/footer %>

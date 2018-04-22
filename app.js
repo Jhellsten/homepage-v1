@@ -1,20 +1,19 @@
 var express = require("express");
+    flash = require("connect-flash"),
     app = express(),
     bodyParser = require("body-parser"),
     mongoose = require("mongoose"),
-    flash = require("connect-flash"),
     passport = require("passport"),
     LocalStrategy = require("passport-local"),
     passportLocalMongoose = require("passport-local-mongoose"),
-    methodOverride = require("method-override")
+    methodOverride = require("method-override");
     Blog = require("./models/blog"),
     Comment = require("./models/comment"),
     User = require("./models/user"),
     commentRoutes = require("./routes/comment"),
     blogRoutes = require("./routes/blogs"),
-    authRoutes = require("./routes/index"),
-    middlewareObj = require("./middleware")
-    
+    authRoutes = require("./routes/index");
+    clientErrorHandler = require("./middleware")
 
 mongoose.connect("mongodb://localhost/hellsten");
 
@@ -48,8 +47,11 @@ app.use("/", authRoutes);
 app.use("/blogs", blogRoutes);
 app.use("/blogs/:id/comments", commentRoutes);
 
-app.use('/', express.static(__dirname + '/www')); // redirect root
-
+app.get("/*", function(req, res){
+	req.flash("error", "Page could not be found", (function(){
+		res.redirect("/");
+	}));
+});
 
 // app.listen(process.env.PORT, process.env.IP);
 

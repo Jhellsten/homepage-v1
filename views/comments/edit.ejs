@@ -1,7 +1,10 @@
-<% include partials/header %>
-<% include partials/navbar %>
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+<h1 class="main-header">Edit your comment here!</h1>
 
+<form class="new-blog forms" action="/blogs/<%= blog_id %>/comments/<%= comment._id%>?_method=PUT" method="POST"> 
+    <textarea name="comment[text]" cols="30" rows="5" required><%= comment.text %></textarea>
+    <input class="btn-def" type="submit">
+</form>
 
-
-
-<% include partials/footer %>
+<% include ../partials/footer %>

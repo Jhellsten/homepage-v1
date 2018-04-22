@@ -1,4 +1,10 @@
-<% include partials/header %>
-<% include partials/navbar %>
+<% include ../partials/header %>
+<% include ../partials/navbar %>
+<h1 class="main-header">Write a new comment!</h1>
 
-<% include partials/footer %>
+<form class="new-blog" action="/blogs/<%= blog._id%>/comments/new" method="POST">
+    <textarea name="comment[text]" cols="30" rows="5" placeholder="Write your comment here" required></textarea>
+    <input class="btn-def" type="submit">
+</form>
+
+<% include ../partials/footer %>

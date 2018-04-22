@@ -1,16 +1,17 @@
-.wrapper {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-gap: 1em;
-    grid-auto-rows: minmax(75px, auto);
-    text-align: center;
+.navbar-own {
+    background: rgba(6, 30, 66, 0.699);
+    box-shadow: 0.5em 0.75em 3px rgba(2, 15, 35,0.2);
 }
 
 .wrapper > a {
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    padding: 0.5em 1em 0.5em 1em;
     text-decoration: none;
     color: antiquewhite;
+    justify-content: center;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 25px;
+    box-shadow: 4px 4px 2px rgba(2, 15, 35,0.2);
 }
   
 .wrapper > a:hover {
@@ -19,39 +20,77 @@
     transition-delay: 50ms;
 }
 
-
-.navbar-own {
-    margin: 3em 4em 5em 4em;
-    width: 90%;
-    background: rgba(2, 15, 35,0.8);
-    border-radius: 25px;
-    box-shadow: 0.5em 0.75em 3px rgba(2, 15, 35,0.2);
+#signed-in {
+    color: rgba(35, 223, 82, 0.8);
 }
 
+.alert {
+    margin-top: 20px;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-areas: 
+    "col-home col-blogs col-app col-about col-new-blog col-login col-reg col-logout col-signed col-signed";
+    padding: 5px 10px 5px 10px;
+    grid-gap: 10px;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-rows: 65px;
+}
+/* Media queries */
+@media screen and (max-width: 600px) {
+	.wrapper {
+        grid-template-areas: "col-home col-blogs"
+                             "col-app col-about"
+                             "col-new-blog col-new-blog"
+                             "col-login blogs-header"
+                             "col-reg ."
+                             "col-logout col-signed";
+		grid-template-columns: 45% 45%;
+		grid-template-rows: auto;
+        background: rgba(6, 30, 66, 0.699);
+        border-radius: 25px;
+        margin: 2px;
+        padding: 10px;
+    }
+    .wrapper > a {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 25px;
+    }
+
+}
 .col-home {
-    grid-column: 2;
+    grid-area: col-home;
 }
 
 .col-blogs {
-    grid-column: 3;
+    grid-area: col-blogs;
 }
 
 .col-app {
-    grid-column: 4;
+    grid-area: col-app;
 }
 
 .col-about {
-    grid-column: 5;
+    grid-area: col-about;
+}
+
+.col-new-blog {
+    grid-area: col-new-blog;
 }
 
 .col-login {
-    grid-column: 9;
+    grid-area: col-login;
 }
 
 .col-register {
-    grid-column: 10;
+    grid-area: col-reg;
 }
 
 .col-logout {
-    grid-column: 11;
+    grid-area: col-logout;
+}
+
+.col-signed {
+    grid-area: col-signed;
 }

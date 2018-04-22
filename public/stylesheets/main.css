@@ -1,44 +1,41 @@
 body {
-    background-color: rgba(2, 41, 104, 0.8);
+    background-color: rgba(213, 222, 236, 0.8);
+    color: rgba(28, 29, 31, 0.8);
     font-family: "Roboto", "sans-serif";
+    margin: 0;
+    line-height: 1.5em;
 }
 a:visited {
     color: black;
 }
-.blogs-wrapper {
-    display: grid;
-    grid-template-columns: 50%;
-    grid-template-rows: minmax(5em, auto);
-    grid-gap: 2px;
-    justify-content: center;
+
+.visible-mobile {
+    display: none !important;
+  }  
+
+.top-banner {
+    grid-area: top-banner;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
 }
 
-.blogs-header {
-    text-align: center;
+.alert-err {
+    padding: 20px;
+    background-color: #e64a3f;
+    color: antiquewhite;
+    margin-bottom: 15px;
 }
 
-.blog-name {
-    text-align: center;
+.alert-suc {
+    padding: 20px;
+    background-color: #18b933;
+    color: antiquewhite;
+    margin-bottom: 15px;
 }
 
-.blog-image {
-    grid-template-columns: 50%;
-    justify-content: center;
-}
-
-.blogs-desc {
-    display: grid;
-    grid-template-columns: 1fr, 2fr;
-}
-
-.blog-author {
-    justify-content: left;
-    grid-column: 1 / 2;
-}
-
-.read-more {
-    justify-content: right;
-    grid-column: 2 / 2;
+.btn-def {
     border-radius: 28px;
     text-decoration: none;
     padding: 10px 20px 10px 20px;
@@ -46,20 +43,181 @@ a:visited {
     opacity: 0.7;
     color: antiquewhite;
 }
+.btn-edit {
+    border-radius: 28px;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    background: #3498db;
+    opacity: 0.7;
+    color: antiquewhite;
+    height: 1em;
+}
+.btn-del {
+    border-radius: 28px;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    background: #ce2323d3;
+    opacity: 0.7;
+    color: antiquewhite;
+}
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    width: 100%;
+}
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.module {
+    justify-content: center;
+    border-radius: 10px;
+    padding: 20px;
+    width: 800px;
+    margin: 5% auto 5% auto;
+}
+
+/* Media queries */
+@media screen and (max-width: 600px) {
+	.main-container {
+       width: 80%;
+       margin: 5% auto 5% auto;
+    }
+    .visible-mobile {
+    display: inline !important;
+    }
+
+    .hidden-mobile {
+    display: none !important;
+    }
+    body {
+        margin: 10px;
+    }
+    .forms {
+        margin: 5% 10% 5%10% !important;   
+    }
+}
+
+/* Blogs page */
+
+.wrapper {
+    grid-area: wrapper;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blogs-header {
+    grid-area: blogs-header;
+    text-align: center;
+    grid-gap: 0px 20px;
+}
+
+.blog-name {
+    grid-area: blog-name;
+    text-align: center;
+}
+
+.blog-img {
+    grid-area: blog-img;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.blog-content {
+    grid-area: blog-content;
+    height: 50%;
+    margin: 7px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.blog-content > p {
+    height: 100%;
+}
+
+.blog-desc {
+    grid-area: blog-desc;
+    object-fit: cover;
+}
+
+.blog-desc-bottom {
+    grid-area: blog-desc-bottom;
+    display: flex;
+    margin: 0;
+    overflow: hidden;
+}
+
+.blog-author {
+    grid-area: blog-author;
+    align-content: flex-end;
+    flex: 0 25%;
+    text-align: center;
+    margin: 0.5em;
+}
+
+.read-more {
+    grid-area: read-more;
+    text-align: center;
+    flex: 0 25%;
+    align-content: flex-start;
+}
 .read-more:hover {
     background: #131c21;
     text-decoration: none;
-  }
-
-.ui.form{
-    margin: 3em;
-    padding: 1em;
 }
 
-#footer-text{
-    position: fixed;
-    bottom: 0.2em;
-    width: 100%;
-    height: 40px;
+/* Blogs show page */
+
+.main-header {
     text-align: center;
+    font-size: 2em;
+    margin: 1em;
+}
+
+.new-blog {
+    text-align: center;
+    display: inline-block;
+    width: 50%;
+    height: 30%;
+    margin: 5% 30% 50% 30%;
+}
+/* For forms */
+.forms {
+    margin: 5% 30% 10% 30%;
+}
+
+input, select {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-sizing: border-box;
+}
+
+.input-url {
+    margin: 0;
+}
+
+.input-text {
+    object-fit: fill;
+    height: 20%;
+}
+
+/* Footer */
+#footer-text{
+    grid-area: footer;
+    bottom: 0.2em;
+    text-align: center;
+    opacity: 0.3;
 }

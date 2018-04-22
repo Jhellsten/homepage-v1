@@ -1,17 +1,20 @@
 <% include partials/header %>
 <% include partials/navbar %>
-<div class="blogs-wrapper">    
-    <div class="blogs-header"><h1>Blogs page</h1></div>    
-    <% blogs.forEach(function(blog){ %>
-    <div>
-        <div class="blog-img" ><img src="<%= blog.image %>" alt="Blog Image"></div>
-        <div class="blog-name"><h3><%= blog.name %></h3></div>
-    </div>    
-    <div class="blog-desc">
+<div class="main-container">    
+    <div class="module">   
+        <div class="blogs-header"><h1>Hellsten's Blog page</h1></div>    
+        <% blogs.forEach(function(blog){ %>
+        <div ><img class="blog-img" src="<%= blog.image %>" alt="Blog Image"></div>
+        <div class="blog-name"><h3><%= blog.name %></h3></div>    
+        <div class="blog-content">
         <p> <%= blog.description %></p>
-        <h4 class="blog-author"><em>Written by </em><%= blog.author.username %></h4>
-        <a class="read-more" href="/blogs/<%= blog._id %>">Read more!</a>
-    </div>   
-</div>
-<% }); %>
+        </div>
+            <section class="blog-desc-bottom"> 
+                <a class="read-more btn-def" href="/blogs/<%= blog._id %>">Read more!</a>
+                <h4 class="blog-author"><em>Written by </em><%= blog.author.username %></h4>
+            </section> 
+        <% }); %>
+    </div>         
+</div>          
+
 <% include partials/footer %>
