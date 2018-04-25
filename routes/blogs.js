@@ -5,6 +5,7 @@ var User = require("../models/user");
 var Blog = require("../models/blog");
 var Comment = require("../models/comment");
 var middleware = require("../middleware");
+var md = require('markdown-it')();
 
 router.get("/", function(req, res){
 	Blog.find({}, function(err, allBlogs){
@@ -21,6 +22,8 @@ router.get("/new", middleware.isLoggedIn, function(req, res){
 	res.render("blogs/new");
 });
 
+var logging = require("../models/logging");
+
 router.post("/new", middleware.isLoggedIn, function(req, res, next){
 	var name = req.body.name;
 	var image = req.body.image;
@@ -34,6 +37,7 @@ router.post("/new", middleware.isLoggedIn, function(req, res, next){
 		if(err){
 			console.log(err);
 		} else {
+			logging.log("blog-added", "Added blog " + newlyCreated.name);
 			console.log(newlyCreated);
 			res.redirect("/Blogs");
 		}
@@ -47,6 +51,7 @@ router.get("/:id", function(req, res){
 			req.flash("error", {error: err.message});
 			console.log(err);
 		} else {
+			foundBlog.md = md.render(foundBlog.description);
 			res.render("blogs/show", {blog: foundBlog});
 		}
 	});
@@ -80,10 +85,15 @@ router.delete("/:id", middleware.checkBlogOwnership, function(req, res){
 			req.flash("error", {error: err.message});
 			res.redirect("/blogs");
 		} else {
-			req.flash("success", blog.name + " was successfully removed!");
+			req.flash("success", "Blog was successfully removed!");
 			res.redirect("/blogs");
 		}
 	});
+});
+
+router.get("*", function(req, res){
+	console.log("L;ytyi");
+	res.redirect("/blogs");
 });
 
 module.exports = router;

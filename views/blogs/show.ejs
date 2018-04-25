@@ -4,7 +4,7 @@
     <div class="module">   
         <img class="blog-img" src="<%= blog.image %>" alt="Blog Image">
         <h1 class="blogs-header"><%= blog.name %></h1>    
-        <p> <%= blog.description %></p> 
+        <p><%- blog.md %></p> 
         <section class="blog-desc-bottom">
             <% if(currentUser && blog.author.id.equals(currentUser._id)){ %>
             <a class="btn-edit" href="/blogs/<%= blog._id %>/edit">Edit</a>

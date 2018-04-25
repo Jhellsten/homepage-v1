@@ -55,13 +55,18 @@ middlewareObj.isLoggedIn = function(req, res, next){
 	res.redirect("/login");
 };
 
-// Express error handling
-function clientErrorHandler (err, req, res, next) {
-	if (req.xhr) {
-		res.status(500).send({ error: "Something failed!" });
-	} else {
-		next(err);
+middlewareObj.shortenDesc = function(str, length, ending, next) {
+	if (length == null) {
+		length = 400;
 	}
-}
-module.exports = clientErrorHandler;
+	if (ending == null) {
+		ending = "...";
+	}
+	if (str.length > length) {
+		return str.substring(0, length - ending.length) + ending;
+	} else {
+	  return blog.description;
+	} next();
+};
+
 module.exports = middlewareObj;
