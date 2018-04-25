@@ -56,10 +56,10 @@ app.use(function(req, res, next){
 	res.redirect("/blogs");
 });
 
-app.use(function(err, req, res, next){
-	Logging.error(err);
-	next();
-});
+// app.use(function(err, req, res, next){
+// 	Logging.error(err);
+// 	next();
+// });
 
 // app.listen(process.env.PORT, process.env.IP);
 
