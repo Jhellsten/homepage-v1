@@ -38,7 +38,8 @@ body {
     display: inline-block;
     font-size: 16px;
     border-radius: 25px;
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+            box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
 }
 
 .slideshow {
@@ -62,7 +63,8 @@ body {
     background-position: 50% 50%;
     opacity: 0;
     z-index: 0;
-    animation: imageAnimation 30s linear infinite; 
+    -webkit-animation: imageAnimation 30s linear infinite;
+            animation: imageAnimation 30s linear infinite; 
 }
 
 .slideshow li:nth-child(1) { 
@@ -70,11 +72,13 @@ body {
   }
   .slideshow li:nth-child(2) { 
     background-image: url(/img/nasa-45069-unsplash.jpg);
-    animation-delay: 10s; 
+    -webkit-animation-delay: 10s;
+            animation-delay: 10s; 
   }
   .slideshow li:nth-child(3) { 
     background-image: url(/img/nasa-53884-unsplash.jpg);
-    animation-delay: 20s; 
+    -webkit-animation-delay: 20s;
+            animation-delay: 20s; 
   }
   /* .slideshow li:nth-child(4) { 
     background-image: url(http://i.imgur.com/2LSMCmJ.jpg);
@@ -85,14 +89,35 @@ body {
     animation-delay: 40s;  
   }*/
   
-@keyframes imageAnimation { 
+@-webkit-keyframes imageAnimation { 
 0% { 
     opacity: 0; 
-    animation-timing-function: ease-in;
+    -webkit-animation-timing-function: ease-in; 
+            animation-timing-function: ease-in;
 }
 20% {
     opacity: 1;
-    animation-timing-function: ease-out;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
+}
+30% {
+    opacity: 1
+}
+40% {
+    opacity: 0
+}
+}
+  
+@keyframes imageAnimation { 
+0% { 
+    opacity: 0; 
+    -webkit-animation-timing-function: ease-in; 
+            animation-timing-function: ease-in;
+}
+20% {
+    opacity: 1;
+    -webkit-animation-timing-function: ease-out;
+            animation-timing-function: ease-out;
 }
 30% {
     opacity: 1

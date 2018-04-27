@@ -62,20 +62,27 @@ a:visited {
 }
 textarea {
     -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
     box-sizing: border-box;
 
     width: 100%;
 }
 
 .main-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .module {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     border-radius: 10px;
     padding: 20px;
     width: 800px;
@@ -107,9 +114,15 @@ textarea {
 
 .wrapper {
     grid-area: wrapper;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
 }
 
 .blogs-header {
@@ -137,7 +150,8 @@ textarea {
     height: 50%;
     margin: 7px;
     overflow: hidden;
-    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+       text-overflow: ellipsis;
 }
 .blog-content > p {
     height: 100%;
@@ -145,11 +159,14 @@ textarea {
 
 .blog-desc {
     grid-area: blog-desc;
-    object-fit: cover;
+    -o-object-fit: cover;
+       object-fit: cover;
 }
 
 .blog-desc-bottom {
     grid-area: blog-desc-bottom;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: 0;
     overflow: hidden;
@@ -157,8 +174,11 @@ textarea {
 
 .blog-author {
     grid-area: blog-author;
-    align-content: flex-end;
-    flex: 0 25%;
+    -ms-flex-line-pack: end;
+        align-content: flex-end;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 25%;
+            flex: 0 25%;
     text-align: center;
     margin: 0.5em;
 }
@@ -166,14 +186,19 @@ textarea {
 .read-more {
     grid-area: read-more;
     text-align: center;
-    flex: 0 25%;
-    align-content: flex-start;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 25%;
+            flex: 0 25%;
+    -ms-flex-line-pack: start;
+        align-content: flex-start;
 }
 .read-more:hover {
     background: #c7cbce;
     opacity: 0.5;
     text-decoration: none;
-    transition-duration: 0.5s;
+    -webkit-transition-duration: 0.5s;
+         -o-transition-duration: 0.5s;
+            transition-duration: 0.5s;
 }
 
 /* Blogs show page */
@@ -203,7 +228,8 @@ input, select {
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 25px;
-    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
 }
 
 .input-url {
@@ -211,7 +237,8 @@ input, select {
 }
 
 .input-text {
-    object-fit: fill;
+    -o-object-fit: fill;
+       object-fit: fill;
     height: 20%;
 }
 
