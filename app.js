@@ -1,22 +1,24 @@
 var express = require("express");
-flash = require("connect-flash"),
-app = express(),
-bodyParser = require("body-parser"),
-mongoose = require("mongoose"),
-passport = require("passport"),
-LocalStrategy = require("passport-local"),
-passportLocalMongoose = require("passport-local-mongoose"),
-methodOverride = require("method-override");
-Blog = require("./models/blog"),
-Comment = require("./models/comment"),
-User = require("./models/user"),
-commentRoutes = require("./routes/comment"),
-blogRoutes = require("./routes/blogs"),
-authRoutes = require("./routes/index");
-appRoutes = require("./routes/app");
-Logging = require("./models/logging");
-url = process.env.DATAURL || "mongodb://localhost/hellsten";
-port = process.env.PORT || 3000;
+	flash = require("connect-flash"),
+	app = express(),
+	bodyParser = require("body-parser"),
+	mongoose = require("mongoose"),
+	passport = require("passport"),
+	LocalStrategy = require("passport-local"),
+	passportLocalMongoose = require("passport-local-mongoose"),
+	methodOverride = require("method-override");
+	session = require('express-session');
+	MongoStore = require('connect-mongo')(session);
+	Blog = require("./models/blog"),
+	Comment = require("./models/comment"),
+	User = require("./models/user"),
+	commentRoutes = require("./routes/comment"),
+	blogRoutes = require("./routes/blogs"),
+	authRoutes = require("./routes/index");
+	appRoutes = require("./routes/app");
+	Logging = require("./models/logging");
+	url = process.env.DATAURL || "mongodb://localhost/hellsten";
+	port = process.env.PORT || 3000;
     
 mongoose.connect(url);
 
@@ -33,7 +35,11 @@ app.use(require("express-session")({
         maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
       },
 	resave: false,
-	saveUninitialized: false
+	saveUninitialized: false,
+	store: new MongoStore({
+        url: process.env.DATAURL,
+        touchAfter: 24 * 3600 // time period in seconds
+    })
 }));
 
 app.use(passport.initialize());
