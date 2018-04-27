@@ -170,8 +170,10 @@ textarea {
     align-content: flex-start;
 }
 .read-more:hover {
-    background: #131c21;
+    background: #c7cbce;
+    opacity: 0.5;
     text-decoration: none;
+    transition-duration: 0.5s;
 }
 
 /* Blogs show page */
@@ -215,7 +217,8 @@ input, select {
 
 /* Footer */
 #footer-text{
-    grid-area: footer;
+    position: relative;
+    margin-top: -50px;
     bottom: 0.2em;
     text-align: center;
     opacity: 0.3;
