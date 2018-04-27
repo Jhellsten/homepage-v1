@@ -29,6 +29,9 @@ app.use(flash());
 // Passport configuration
 app.use(require("express-session")({
 	secret: "Once again its going to gain once again",
+	cookie: {
+        maxAge: 1000 * 60 * 60 * 24 * 7 // 1 week
+      },
 	resave: false,
 	saveUninitialized: false
 }));
