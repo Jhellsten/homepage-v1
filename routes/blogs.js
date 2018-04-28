@@ -91,9 +91,9 @@ router.delete("/:id", middleware.checkBlogOwnership, function(req, res){
 	});
 });
 
-router.get("*", function(req, res){
-	console.log("L;ytyi");
-	res.redirect("/blogs");
-});
+// router.get("*", function(req, res){
+// 	console.log("L;ytyi");
+// 	res.redirect("/blogs");
+// });
 
 module.exports = router;

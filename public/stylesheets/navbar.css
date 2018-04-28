@@ -16,6 +16,9 @@
     border-radius: 25px;
     -webkit-box-shadow: 6px 6px 2px rgba(2, 15, 35,0.2);
             box-shadow: 6px 6px 2px rgba(2, 15, 35,0.2);
+    -webkit-transition-delay: 100ms;
+    -o-transition-delay: 100ms;
+        transition-delay: 100ms;
 }
   
 .wrapper > a:hover {

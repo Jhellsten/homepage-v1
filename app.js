@@ -37,7 +37,7 @@ app.use(require("express-session")({
 	resave: false,
 	saveUninitialized: false,
 	store: new MongoStore({
-        url: process.env.DATAURL,
+        url: process.env.DATAURL  || "mongodb://localhost/hellsten",
         touchAfter: 24 * 3600 // time period in seconds
     })
 }));
@@ -60,10 +60,10 @@ app.use("/blogs", blogRoutes);
 app.use("/blogs/:id/comments", commentRoutes);
 app.use("/app", appRoutes);
 
-app.use(function(req, res, next){
-	req.flash("error", "Page not found");
-	res.redirect("/blogs");
-});
+// app.use(function(req, res, next){
+// 	req.flash("error", "Page not found");
+// 	res.redirect("/blogs");
+// });
 
 // app.use(function(err, req, res, next){
 // 	Logging.error(err);
