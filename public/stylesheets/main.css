@@ -127,7 +127,10 @@ textarea {
 
 .blogs-header {
     grid-area: blogs-header;
+    text-decoration: underline;
     text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
     grid-gap: 0px 20px;
 }
 
