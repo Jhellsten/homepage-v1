@@ -13,6 +13,7 @@
             </form>
             <% } %>
             <h4 class="blog-author"><em>Written by </em><%= blog.author.username %></h4>
+            <p><em><%= blog.date %></em></p>
             <%	if(currentUser) { %>
                 <a class="btn-def" href="/blogs/<%= blog._id %>/comments/new">Comment!</a>
             <% } %>

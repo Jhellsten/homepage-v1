@@ -54,19 +54,6 @@ middlewareObj.isLoggedIn = function(req, res, next){
 	req.flash("error", "You need to be loggged in to do that!");
 	res.redirect("/login");
 };
-
-middlewareObj.shortenDesc = function(str, length, ending, next) {
-	if (length == null) {
-		length = 400;
-	}
-	if (ending == null) {
-		ending = "...";
-	}
-	if (str.length > length) {
-		return str.substring(0, length - ending.length) + ending;
-	} else {
-	  return blog.description;
-	} next();
-};
+// To show shorter blogs, not working yet!
 
 module.exports = middlewareObj;
