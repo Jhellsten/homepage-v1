@@ -6,10 +6,11 @@
 
 .wrapper > a {
     font-size: 18px;
+    margin: 5px;
     padding: 0.5em 1em 0.5em 1em;
+    width: 10%;
     text-decoration: none;
     color: antiquewhite;
-    -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
     border: 1px solid rgba(0, 0, 0, 0.2);
@@ -29,6 +30,7 @@
     -webkit-box-shadow: 3px 3px 2px rgba(2, 15, 35,0.2);
             box-shadow: 3px 3px 2px rgba(2, 15, 35,0.2);
     top: 2px;
+    opacity: 0.5;
 }
 
 .wrapper > a:active {
@@ -46,92 +48,30 @@
 }
 
 .wrapper {
-    display: -ms-grid;
-    display: grid;
-        grid-template-areas: 
-    "col-home col-blogs col-app col-about col-new-blog col-login col-reg col-logout col-signed col-signed";
-    padding: 5px 10px 5px 10px;
-    grid-gap: 10px;
-    -ms-grid-columns: (1fr)[10];
-        grid-template-columns: repeat(10, 1fr);
-    -ms-grid-rows: 65px;
-        grid-template-rows: 65px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+      -ms-flex-pack: center;
+          justify-content: center;  
+  -ms-flex-wrap: nowrap;  
+      flex-wrap: nowrap;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  padding: 10px;
 }
 /* Media queries */
 @media screen and (max-width: 600px) {
-	.wrapper {
-            grid-template-areas: "col-home col-blogs"
-                             "col-app col-about"
-                             "col-new-blog col-new-blog"
-                             "col-login blogs-header"
-                             "col-reg ."
-                             "col-logout col-signed";
-		-ms-grid-columns: 45% 45%;
-		    grid-template-columns: 45% 45%;
-		-ms-grid-rows: auto;
-		    grid-template-rows: auto;
+    body {
+        margin: 0;
+    }
+    .wrapper {
         background: rgba(6, 30, 66, 0.699);
-        border-radius: 25px;
-        margin: 2px;
-        padding: 10px;
+        margin: 0;
     }
     .wrapper > a {
         border: 1px solid rgba(0, 0, 0, 0.2);
         border-radius: 25px;
+        width: 20%;
     }
 
-}
-.col-home {
-    -ms-grid-row: 1;
-    -ms-grid-column: 1;
-    grid-area: col-home;
-}
-
-.col-blogs {
-    -ms-grid-row: 1;
-    -ms-grid-column: 2;
-    grid-area: col-blogs;
-}
-
-.col-app {
-    -ms-grid-row: 1;
-    -ms-grid-column: 3;
-    grid-area: col-app;
-}
-
-.col-about {
-    -ms-grid-row: 1;
-    -ms-grid-column: 4;
-    grid-area: col-about;
-}
-
-.col-new-blog {
-    -ms-grid-row: 1;
-    -ms-grid-column: 5;
-    grid-area: col-new-blog;
-}
-
-.col-login {
-    -ms-grid-row: 1;
-    -ms-grid-column: 6;
-    grid-area: col-login;
-}
-
-.col-register {
-    -ms-grid-row: 1;
-    -ms-grid-column: 7;
-    grid-area: col-reg;
-}
-
-.col-logout {
-    -ms-grid-row: 1;
-    -ms-grid-column: 8;
-    grid-area: col-logout;
-}
-
-.col-signed {
-    -ms-grid-row: 1;
-    -ms-grid-column: 9;
-    -ms-grid-column-span: 2;
-    grid-area: col-signed;
 }

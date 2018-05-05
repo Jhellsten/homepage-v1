@@ -92,7 +92,7 @@ textarea {
 /* Media queries */
 @media screen and (max-width: 600px) {
 	.main-container {
-       width: 80%;
+       width: 100%;
        margin: 5% auto 5% auto;
     }
     .visible-mobile {
