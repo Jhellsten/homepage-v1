@@ -3,7 +3,6 @@ body {
     color: rgba(28, 29, 31, 0.8);
     font-family: "Roboto", "sans-serif";
     margin: 0;
-    line-height: 1.5em;
 }
 a:visited {
     color: antiquewhite;
@@ -155,6 +154,7 @@ textarea {
     grid-area: blog-content;
     height: 30%;
     margin: 7px;
+    line-height: 1.5em;
 }
 .blog-content > p {
     white-space: pre-wrap;
