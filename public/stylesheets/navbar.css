@@ -60,6 +60,12 @@
   padding: 10px;
 }
 /* Media queries */
+@media screen and (max-width: 920px) {
+    nav {
+      justify-content: space-around;
+    }
+}
+
 @media screen and (max-width: 600px) {
     body {
         margin: 0;
